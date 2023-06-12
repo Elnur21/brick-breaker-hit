@@ -9,7 +9,6 @@ let itemTop = 0
 bricks.forEach((item)=>{
     item.style.left=itemLeft+"px"
     item.style.top=itemTop+"px"
-    console.log(item.offsetLeft)
     if(itemLeft===450){
         itemLeft=0
         itemTop+=20
@@ -44,17 +43,18 @@ start.addEventListener("click", () => {
     } else if (ballLeft === 0) {
       ballDirectionX = 1;
     }
-    if (ballTop === 460 && ballLeft >= barLeft-15 && ballLeft <= barLeft + 115) {
+    if (ballTop === 460 && ballLeft >= barLeft-30 && ballLeft <= barLeft + 115) {
       ballDirectionY = -1;
     } else if (ballTop > 470) {
       clearInterval(interval);
     }
-    bricks.forEach((item)=>{
-        if(ballLeft >= (item.offsetLeft-10) && ballLeft <= (item.offsetLeft+60) && ballTop === item.offsetTop){
-            item.style.display="none";
-            ballDirectionY=-1
+    for (let i = 0; i < bricks.length; i++) {
+        if(ballLeft >= (bricks[i].offsetLeft-10) && ballLeft <= (bricks[i].offsetLeft+60) && ballTop === bricks[i].offsetTop){
+            bricks[i].style.display="none";
+            ballDirectionY=1
+            break
         }
-    })
+    }
     ballLeft += ballDirectionX;
     ballTop += ballDirectionY;
     ball.style.left = ballLeft + "px";
