@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#area{
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+    transform: translateY(100px);
+    position: relative;
+    margin: 0 auto;
+}
+#ball{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    background: red;
+    top: 0;
+}
+#bar{
+    width: 100px;
+    height: 20px;
+    border-radius: 10px;
+    position: absolute;
+    background: blue;
+    top: calc(100% - 20px);
+}
