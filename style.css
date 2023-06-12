@@ -3,13 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+#game{
+    margin: 0 auto;
+    width: max-content;
+    transform: translateY(100px);
+}
 #area{
     width: 500px;
     height: 500px;
     border: 2px solid black;
-    transform: translateY(100px);
     position: relative;
-    margin: 0 auto;
 }
 #ball{
     width: 30px;
@@ -26,4 +29,23 @@
     position: absolute;
     background: blue;
     top: calc(100% - 20px);
+}
+#buttons{
+    transform: translateY(20px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+#start, #pause{
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+}
+#start{
+    background-color: green;
+}
+#pause{
+    background-color: red;
 }
