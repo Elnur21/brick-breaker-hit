@@ -53,6 +53,9 @@
 ul{
     width: 100%;
     position: relative;
+    list-style-type: none;
+    overflow: hidden;
+    height: 100%;
 }
 ul li{
     width: 50px;
