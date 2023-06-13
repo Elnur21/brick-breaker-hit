@@ -52,19 +52,22 @@ start.addEventListener("click", () => {
       ballLeft >= barLeft - 15 &&
       ballLeft <= barLeft + 115
     ) {
-      ballDirectionY = -1;
+      ballDirectionY = -ballDirectionY;
       ballDirectionX = directionX < 4 ? 1 : directionX < 7 ? -1 : 0;
     } else if (ballTop > 470) {
       scoresArray.push(`Uduzdu ${scoreCount} xal ile`);
       localStorage.setItem("scores", JSON.stringify(scoresArray));
+      alert("uduzdunuz");
       clearInterval(interval);
-    } else if (ballTop === 0) {
-      ballDirectionY = 1;
+    }
+    if (ballTop === 0) {
+      ballDirectionY = -ballDirectionY;
     }
     for (let i = 0; i < bricks.length; i++) {
       if (scoreCount === bricks.length) {
         scoresArray.push(`Max xal ile uddu`);
         localStorage.setItem("scores", JSON.stringify(scoresArray));
+        alert("uddunuz");
         clearInterval(interval);
         break;
       }
@@ -74,7 +77,7 @@ start.addEventListener("click", () => {
         ballTop === bricks[i].offsetTop
       ) {
         bricks[i].style.display = "none";
-        ballDirectionY = 1;
+        ballDirectionY = -ballDirectionY;
         ballDirectionX = directionX < 4 ? 1 : directionX < 7 ? -1 : 0;
         scoreCount += 1;
         score.innerHTML = scoreCount;
