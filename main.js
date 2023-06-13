@@ -44,7 +44,7 @@ start.addEventListener("click", () => {
     let directionX = Math.floor(Math.random() * 10);
     if (ballLeft === 470) {
       ballDirectionX = -1;
-    } else if (ballLeft === 0) {
+    } else if (ballLeft <= 0) {
       ballDirectionX = 1;
     }
     if (
@@ -60,7 +60,7 @@ start.addEventListener("click", () => {
       alert("uduzdunuz");
       clearInterval(interval);
     }
-    if (ballTop === 0) {
+    if (ballTop <= 0) {
       ballDirectionY = -ballDirectionY;
     }
     for (let i = 0; i < bricks.length; i++) {
