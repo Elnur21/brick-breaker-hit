@@ -31,8 +31,6 @@
     top: calc(100% - 20px);
 }
 #buttons{
-    transform: translateY(20px);
-    width: 100%;
     display: flex;
     justify-content: center;
     column-gap: 20px;
@@ -57,9 +55,22 @@ ul{
     position: relative;
 }
 ul li{
-    width: 10%;
+    width: 50px;
     height: 20px;
     background-color: blueviolet;
     border: 1px solid black;
     position: absolute;
+}
+#scores{
+    width: 100%;
+    border: 1px solid black;
+    padding: 5px;
+    transform: translateY(30px);
+}
+.flex{
+    transform: translateY(20px);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
 }
