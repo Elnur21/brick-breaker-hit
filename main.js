@@ -55,9 +55,9 @@ start.addEventListener("click", () => {
       ballDirectionY = -ballDirectionY;
       ballDirectionX = directionX < 4 ? 1 : directionX < 7 ? -1 : 0;
     } else if (ballTop > 470) {
-      scoresArray.push(`Uduzdu ${scoreCount} xal ile`);
+      scoresArray.push(`You have got only ${scoreCount} points`);
       localStorage.setItem("scores", JSON.stringify(scoresArray));
-      alert("uduzdunuz");
+      alert("You can win next time.");
       clearInterval(interval);
     }
     if (ballTop <= 0) {
@@ -65,9 +65,9 @@ start.addEventListener("click", () => {
     }
     for (let i = 0; i < bricks.length; i++) {
       if (scoreCount === bricks.length) {
-        scoresArray.push(`Max xal ile uddu`);
+        scoresArray.push(`You have won the game!!!`);
         localStorage.setItem("scores", JSON.stringify(scoresArray));
-        alert("uddunuz");
+        alert("You got victory.");
         clearInterval(interval);
         break;
       }
@@ -107,13 +107,15 @@ start.addEventListener("click", () => {
   });
 });
 
-document.addEventListener("load",reset());
+document.addEventListener("load", reset());
 
 function reset() {
   scoreCount = 0;
   score.innerHTML = scoreCount;
   scores.innerHTML = "";
-  scoresArray = JSON.parse(localStorage.getItem("scores"))?JSON.parse(localStorage.getItem("scores")):[]
+  scoresArray = JSON.parse(localStorage.getItem("scores"))
+    ? JSON.parse(localStorage.getItem("scores"))
+    : [];
   scoresArray.forEach((score) => {
     scores.innerHTML += `
       <p>${score}</p>
