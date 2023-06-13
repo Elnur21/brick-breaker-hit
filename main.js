@@ -6,7 +6,7 @@ let restart = document.querySelector("#restart");
 let bricks = document.querySelectorAll("ul li");
 let scores = document.querySelector("#scores");
 let score = document.querySelector("#score");
-let scoresArray = [];
+let scoresArray = [""];
 let scoreCount = 0;
 let itemLeft = 0;
 let itemTop = 0;
@@ -107,13 +107,13 @@ start.addEventListener("click", () => {
   });
 });
 
-onload(reset());
+document.addEventListener("load",reset());
 
 function reset() {
   scoreCount = 0;
   score.innerHTML = scoreCount;
   scores.innerHTML = "";
-  scoresArray = JSON.parse(localStorage.getItem("scores"));
+  scoresArray = JSON.parse(localStorage.getItem("scores"))?JSON.parse(localStorage.getItem("scores")):[]
   scoresArray.forEach((score) => {
     scores.innerHTML += `
       <p>${score}</p>
